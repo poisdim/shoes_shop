@@ -1,9 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchData} from "../../redux/shoesReducer";
+import './Home.css';
 
 export const Home = (props) => {
+    let {shoes} = useSelector(state => state.shoes);
+    let dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchData())
+    }, []);
     return (
-        <div>
-            Home
+        <div id="product">
+            {
+                shoes.map(product => (
+                    <div className="card" key={product._id}>
+                        <Link to={`/product/${product._id}`}>
+                            <img src={product.src} alt=""/>
+                        </Link>
+                        <div className="content">
+                            <h3>
+                                <Link to={`/shoes/${product._id}`}>{product.title}</Link>
+                            </h3>
+                            <span>${product.price}</span>
+                            <p>{product.description}</p>
+                            <button onClick={() => {
+                            }}>Add to cart
+                            </button>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     );
 };
