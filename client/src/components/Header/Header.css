@@ -1,0 +1,108 @@
+header {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 20px;
+    background: linear-gradient(to left top, #32d6ff, #afb0ff)
+}
+
+header .logo a {
+    text-decoration: none;
+    color: black;
+}
+
+header .menu {
+    display: none;
+}
+
+header nav {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #555;
+    padding: 0 15px;
+}
+
+.active {
+    color: #ff1815;
+}
+
+nav ul li a:hover {
+    color: lightseagreen;
+}
+
+nav ul .close {
+    display: none;
+}
+
+.cart {
+    cursor: pointer;
+    position: relative;
+    margin-right: 20px;
+}
+
+.cart span {
+    position: absolute;
+    top: -12px;
+    right: -19px;
+    background: crimson;
+    font-size: 18px;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+
+@media (max-width: 650px) {
+    header nav {
+        position: fixed;
+    }
+
+    header nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 70px;
+        left: -100%;
+        transition: all .5s linear;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        background: white;
+        z-index: 99;
+        opacity: 0.97;
+    }
+
+    header nav ul li {
+        margin-top: 50px;
+    }
+
+    header .menu {
+        display: block;
+    }
+
+    header nav ul.isActive {
+        left: 0;
+    }
+
+    nav ul .close {
+        display: block;
+        position: absolute;
+        top: -20px;
+        right: 40px;
+    }
+
+}
