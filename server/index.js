@@ -15,4 +15,15 @@ app.get('/shoes', (req, res) => {
 });
 
 
+app.get('/shoes/:id', (req, res) => {
+    try {
+        let {id} = req.params;
+        let findShoe = shoes.find(el => el._id === id);
+        res.status(200).json(findShoe);
+    } catch (e) {
+        res.status(400).json({message: e.message})
+    }
+});
+
+
 app.listen(3002, () => console.log('server started'));

@@ -51,14 +51,14 @@ nav ul .close {
     margin-right: 20px;
 }
 
-.cart span {
+.cart .count_cart {
     position: absolute;
     top: -12px;
     right: -19px;
     background: crimson;
     font-size: 18px;
     color: white;
-    padding: 3px 5px;
+    padding: 0 5px;
     border-radius: 50%;
     z-index: 1000;
 }

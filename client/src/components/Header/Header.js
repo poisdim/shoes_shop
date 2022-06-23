@@ -1,12 +1,14 @@
 import React from 'react';
-import cart from '../../svg/shopping-cart-solid.svg';
+import cartImg from '../../svg/cart.svg';
 import menu from '../../svg/bars-solid.svg'
 import times from '../../svg/times-solid.svg';
 import {NavLink, Link} from "react-router-dom";
 import './Header.css';
+import {useSelector} from "react-redux";
 
 
 export const Header = (props) => {
+    let {cart} = useSelector(state => state.cart);
     let [isActive, setIsActive] = React.useState(false);
     let toggleMenu = () => {
         setIsActive(!isActive)
@@ -31,9 +33,9 @@ export const Header = (props) => {
                 </ul>
             </nav>
             <div className="cart">
-                <span>20</span>
+                <span className={'count_cart'}>{cart.length ? cart.length : 0}</span>
                 <Link to="/cart">
-                    <img src={cart} alt="" width="20"/>
+                    <img src={cartImg} alt="" width="20"/>
                 </Link>
             </div>
         </header>
